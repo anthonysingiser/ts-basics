@@ -44,3 +44,4 @@ if(ids[30] === "D") {
 
 //ts will infer what the type is from the return value
 const out = [4, 5, 6].map((v) => `${v * 10}`);
+
