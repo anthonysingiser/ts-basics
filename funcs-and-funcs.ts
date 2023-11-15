@@ -3,7 +3,8 @@ export function printToFile(text: string, callback: () => void): void {
     callback()
 }
 
-//create type for a function that takes a number as a parameter and returns a number
+/*create type for a function that takes a number 
+as a parameter and returns a number*/
 type MutationFunction = (v: number) => number
 
 export function arrayMutate(
@@ -12,6 +13,7 @@ export function arrayMutate(
 ): number[] {
     return numbers.map(mutate)    
 }
+
 //declaring a new function and using the MutationFunction type
 const myNewMutateFunc: MutationFunction = (v: number) => v * 100
 

@@ -11,6 +11,7 @@ let myRegex: RegExp = /foo/;
 
 //typing an array
 const names: string[] = userName.split(" ");
+
 //typing an array of numbers
 const myValues: Array<number> = [1, 2, 3];
 
