@@ -1,21 +1,26 @@
-import houses from './houses.json'
+import houses from './houses'
 
 
 interface House {
     name: string,
-    planets: string,
+    planets: string | string[],
 }
     
 interface HouseWithID {
-    ...
+    id: number,
+    name: string,
+    planets: string | string[],
 }
 
-function findHouses(houses: string): HouseWithID[];
-
-function findHouses(
-    houses: string,
-    filter: (house: House) => boolean
-): HouseWithID[];
+function findHouses(input: string | House[], filter?: (house: House) => boolean): HouseWithID[] {
+    
+    const houses: House[] = typeof input === "string" ? JSON.parse(input) : input
+    
+    return (filter ? houses.filter(filter) : houses).map((house) => ({
+            id:houses.indexOf(house),
+            ...house,
+        }))
+};
 
 
 //function findHouses(houses: House[]): HouseWithID[];
@@ -30,8 +35,6 @@ console.log(
     findHouses(JSON.stringify(houses), ({ name }) => name === "Atreides")
 );
 
-/*
 console.log(
     findHouses(houses, ({ name }) => name === "Harkonnen")
 );
-*/
