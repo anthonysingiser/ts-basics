@@ -1,4 +1,4 @@
-import houses from './houses'
+import houses from './houses.json'
 
 
 interface House {
@@ -6,13 +6,14 @@ interface House {
     planets: string | string[],
 }
     
-interface HouseWithID {
+interface HouseWithID extends House {
     id: number,
-    name: string,
-    planets: string | string[],
 }
 
-function findHouses(input: string | House[], filter?: (house: House) => boolean): HouseWithID[] {
+function findHouses(
+    input: string | House[], 
+    filter?: (house: House) => boolean
+    ): HouseWithID[] {
     
     const houses: House[] = typeof input === "string" ? JSON.parse(input) : input
     
