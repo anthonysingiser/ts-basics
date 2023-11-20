@@ -14,7 +14,7 @@ function add3DCoordinate(c1: ThreeDCoordinate, c2: ThreeDCoordinate): ThreeDCoor
 
 console.log(add3DCoordinate([0, 50, 0], [10, 20, 30]))
 
-//state function that takes a string and returns a tuple
+//state function that takes a string and returns a tuple of two functions, the first a function that returns the string, and the second a function that sets the string
 function simpleStringState(initial: string): [() => string, (v: string) => void] {
     let str: string = initial
     return [
@@ -24,3 +24,16 @@ function simpleStringState(initial: string): [() => string, (v: string) => void]
         }
     ]
 }
+
+//in practice 
+
+const [str1getter, str1setter] = simpleStringState("Hello")
+const [str2getter, str2setter] = simpleStringState("Tony")
+
+console.log(str2getter())
+console.log(str1getter())
+
+str1setter("Goodbye")
+
+console.log(str1getter())
+console.log(str2getter())
