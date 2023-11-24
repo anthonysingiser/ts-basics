@@ -1,6 +1,6 @@
 interface MyUser {
     name: string;
-    id: string;
+    id: number;
     email?: string
 }
 
@@ -26,7 +26,7 @@ console.log(
     merge(
     {
         name: "Tony",
-        id: "CoolFnny2",
+        id: 4,
         email: "emailaddress@coolemail.com"
     }, 
     {
@@ -49,7 +49,7 @@ type UserWithoutId = Omit<MyUser, "id">;
 //Record utility type,
 //takes two parameters: id type and output type
 
-const mapById = (users: MyUser[]): Record<string, Omit<MyUser, "id">> => {
+const mapById = (users: MyUser[]): Record<MyUser["id"], Omit<MyUser, "id">> => {
     return users.reduce((a,v) => {
         const { id, ...other } = v
         return {
@@ -61,11 +61,11 @@ const mapById = (users: MyUser[]): Record<string, Omit<MyUser, "id">> => {
 
 console.log(mapById([
     {
-        id: "foo",
+        id: 3,
         name: "Mr. Bar"
     },
     {
-        id: "baz",
+        id: 7,
         name: "Mrs. Baz"
     }
 ]));
