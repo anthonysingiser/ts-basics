@@ -41,3 +41,31 @@ type RequiredMyUser = Required<MyUser>
 //Pick utility type,
 //generate a new type from an existing type with the fields in the second argument, optionality from initial type is preserved 
 type JustEmailAndName = Pick<MyUser, "email" | "name">
+
+//Omit utility type,
+//takes a type and keys and generates a type without those keys 
+type UserWithoutId = Omit<MyUser, "id">;
+
+//Record utility type,
+//takes two parameters: id type and output type
+
+const mapById = (users: MyUser[]): Record<string, Omit<MyUser, "id">> => {
+    return users.reduce((a,v) => {
+        const { id, ...other } = v
+        return {
+            ...a,
+            [id]: other,
+        }
+    }, {}) 
+}
+
+console.log(mapById([
+    {
+        id: "foo",
+        name: "Mr. Bar"
+    },
+    {
+        id: "baz",
+        name: "Mrs. Baz"
+    }
+]));
