@@ -6,12 +6,13 @@ function useMagnifyingGlass(): void{
     return Math.floor(Math.random()*2+1)
   }
   
-  function doSleuthing(numberOfClues:number, clue1:string, clue2:string, suspect1:string, suspect2:string):string{
+  function doSleuthing(numberOfClues:number, clue1:string, clue2:string, suspect1:string, 
+  suspect2:string):string{
     console.log('I am a famous detective and I will solve the crime.');
     let unnecessaryVariable= useMagnifyingGlass();
   
-    console.log('Now I consider the first clue: ',clue1);
-    console.log('Now I consider the second clue: ',clue2);
+    console.log('Now I consider the first clue: ', clue1);
+    console.log('Now I consider the second clue: ', clue2);
   
     let culpritNumber:number = determineCulprit();
     console.log('Now, I will return to you the culprit. There but for the grace of God go we.' );
