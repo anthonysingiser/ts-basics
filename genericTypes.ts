@@ -53,7 +53,7 @@ function getFilledArray<T>(value: T, n: number): T[] {
 
   stringArray = getFilledArray<string>('hi', 6)
   numberArray = getFilledArray<number>(9, 6)
-//   personArray = getFilledArray<>({name: 'J. Dean', age: 24}, 6)
+  personArray = getFilledArray<>({name: 'J. Dean', age: 24}, 6)
   coordinateArray = getFilledArray<[number, number]>([3,4], 6)
   
   console.log(stringArray)
