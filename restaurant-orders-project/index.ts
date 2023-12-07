@@ -30,3 +30,17 @@ function getOrders(bracket: PriceBracket, orders: Order[][]): Order[][] {
 }
 
 console.log(getOrders(PriceBracket.Low, orders))
+
+function printOrders(restaurants: Restaurant[], orders: Order[][]): void {
+  orders.forEach((order) => {
+    if (order.length > 0) {
+      console.log(restaurants[orders.indexOf(order)].name);
+      order.forEach((el) =>
+        console.log(`- Order ${order.indexOf(el) + 1}: $${el.price}`)
+      );
+    }
+  });
+}
+
+const elligibleOrders = getOrders(PriceBracket.Low, orders);
+printOrders(restaurants, elligibleOrders);
