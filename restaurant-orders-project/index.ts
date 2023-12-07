@@ -18,4 +18,15 @@ function getMaxPrice(bracket: PriceBracket){
     }
   }
 
-  console.log(getMaxPrice(PriceBracket.Medium))
+console.log(getMaxPrice(PriceBracket.Medium), "maxPrice function test")
+
+function getOrders(bracket: PriceBracket, orders: Order[][]): Order[][] {
+  const filteredOrders: Order[][] = [];
+
+  orders.forEach((item) =>
+    filteredOrders.push(item.filter((el) => el.price <= getMaxPrice(bracket)))
+  );
+  return filteredOrders
+}
+
+console.log(getOrders(PriceBracket.Low, orders))
