@@ -1,16 +1,16 @@
-interface Cat {
+interface LittleCat {
     name: string;
     breed: string
 }
 
-function makeCat(name: string, breed: string): Readonly<Cat> {
+function makeLittleCat(name: string, breed: string): Readonly<LittleCat> {
     return {
         name, 
         breed
     }
 }
 
-const mittens = makeCat("Mittens", "Tabby")
+const mittens = makeLittleCat("Mittens", "Tabby")
 //mittens.name = "Joe" // error, the object is immutable after adding 'Readonly' to the return type of makeCat
 
 function makeCoordinate(
