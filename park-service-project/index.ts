@@ -41,15 +41,23 @@ function isVerified(answer: string | boolean) {
     }
     return answer
 }
-  
+
+function getHours(activity: CombinedActivity) {
+    if ('hours' in activity) {
+        return activity.hours
+    }
+    return activity.time
+}
+
 function calculateHours(volunteers: Volunteers[]) {
     return volunteers.map((volunteer) => {
         let hours = 0;
 
         volunteer.activities.forEach((activity) => {
-
+            if (isVerified(activity.verified)) {
+                hours += getHours(activity);
+            }
         });
-
         return {
             id: volunteer.id,
             name: volunteer.name,
@@ -58,6 +66,14 @@ function calculateHours(volunteers: Volunteers[]) {
     });
 }
 
+function byHours(a, b) {
+    return b.hours - a.hours
+}
+
 const combinedVolunteers = combineVolunteers(
     [].concat(wolfPointVolunteers, raccoonMeadowsVolunteers)
 );
+
+const result = calculateHours(combinedVolunteers)
+
+console.log(result.sort(byHours))
