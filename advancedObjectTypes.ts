@@ -14,14 +14,29 @@ updateRunGoal({
     miles: 5,
 });
 
+// interface Directory {
+//     addFile: (name: string) => void;
+//     config: {
+//         default: {
+//             encoding: string;
+//             permissions: string;
+//         };
+//     };
+// }
+
+//rewriting previous Directory type with composed types
 interface Directory {
     addFile: (name: string) => void;
-    config: {
-        default: {
-            encoding: string;
-            permissions: string;
-        };
-    };
+    config: Config
+}
+
+interface DefaultConfig {
+    encoding: string;
+    permissions: string;
+}
+
+interface Config {
+    default: DefaultConfig
 }
 
 class DesktopDirectory implements Directory {
