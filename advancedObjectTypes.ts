@@ -61,3 +61,22 @@ const Desktop = new DesktopDirectory();
 Desktop.addFile('lesson-notes.txt');
 Desktop.showPreview('lesson-notes.txt');
 console.log(Desktop.config)
+
+//extending interfaces 
+
+interface Developer extends HumanBeing {
+    code: () => void;
+}
+
+interface HumanBeing {
+    name: string;
+    hobbies: string[];
+}
+
+const me: Developer = {
+    code: () => console.log('Headphones on. Coffee brewed. Editor open.'),
+    name: 'Corrina',
+    hobbies: ['Building rockets']
+}
+
+me.code();
