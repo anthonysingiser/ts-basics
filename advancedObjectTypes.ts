@@ -80,3 +80,16 @@ const me: Developer = {
 }
 
 me.code();
+
+//index signatures
+
+interface Budget {
+  [category: string]: number
+}
+
+async function getBudget() {
+  const result: Budget = await getBudgetAsync();
+  console.log(result);
+}
+
+getBudget();
