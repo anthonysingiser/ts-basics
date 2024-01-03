@@ -1,7 +1,9 @@
+/* universal selector */
 * {
     border: 1px solid red;
 }
 
+/* type selectors */
 p {
     color: green;
 }
@@ -10,6 +12,7 @@ h1 {
     color: maroon;
 }
 
+/* class selectors */
 .title {
     color: teal;
 }
@@ -18,10 +21,12 @@ h1 {
     text-transform: uppercase;
 }
 
+/* id selectors */
 #article-title {
     font-family: cursive;
 }
 
+/* attribute selectors */
 a[href*='florence'] {
     color: lightgreen;
 }
@@ -32,4 +37,9 @@ a[href*='beijing'] {
 
 a[href*='seoul'] {
     color: lightpink;
+}
+
+/* pseudo-classes */
+a:hover {
+    color: darkorange;
 }
