@@ -43,3 +43,15 @@ a[href*='seoul'] {
 a:hover {
     color: darkorange;
 }
+
+/* class selector 
+(classes are intended to be used across multiple elements)*/
+.heading-background {
+    background-color: aqua;
+}
+
+/* id selector (id's are intended to style one element, 
+and as such they override class and type elements) */
+#publish-time {
+    color: gray;
+}
