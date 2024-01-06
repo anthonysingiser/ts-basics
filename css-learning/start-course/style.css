@@ -56,6 +56,7 @@ and as such they override class and type elements) */
     color: gray;
 }
 
+/* type selector will give way to author-class which gives way to id */
 h5 {
     color: yellow;
 }
@@ -66,4 +67,30 @@ h5 {
 
 #author-id {
     color: cornflowerblue;
+}
+
+/* chaining */
+h2.destination {
+    font-family: Tahoma;
+}
+
+/* descendant combinator*/
+.description h5 {
+    color: blueviolet;
+}
+
+/* child combinator, affects all <h4> tags that are enclosed by <li> tags */
+li h4 {
+    color: gold;
+}
+
+/* type selector for h4 does not change color because the combinator 'li h4' is more specific */
+h4 {
+    color: dodgerblue;
+}
+
+/* multiple selectors */
+li,
+h5 {
+  font-family: monospace;
 }
