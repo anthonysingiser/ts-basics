@@ -1,6 +1,15 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     background-color: white;
     font-family: 'Raleway', sans-serif;
+}
+
+.donate {
+    visibility: hidden;
 }
 
 .navigation ul {
@@ -43,6 +52,8 @@ body {
     text-align: center;
     width: 400px;
     margin: 0 auto;
+    height: 1000px;
+    overflow:scroll;
 }
 
 h1 {
@@ -75,6 +86,10 @@ p {
     line-height: 48px;
     margin-top: 60px;
     padding: 10px 20px;
+    min-width: 200px;
+    max-width: 800px;
+    min-height: 200px;
+    max-height: 300px;
 }
 
 .pull-quote {
